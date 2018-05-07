@@ -7,4 +7,9 @@ class Guess
     @card = card
   end
 
+  def correct?
+    formatted = @response.downcase.split(' ')
+    formatted[0] == @card.value.downcase && formatted[1] == @card.suit.downcase
+  end
+
 end
