@@ -9,7 +9,9 @@ class Guess
 
   def correct?
     formatted = @response.downcase.split(' ')
-    formatted[0] == @card.value.downcase && formatted[2] == @card.suit.downcase
+    card_value = @card.value.downcase
+    card_suit = @card.suit.downcase
+    formatted[0] == card_value && formatted[2] == card_suit
   end
 
   def feedback
