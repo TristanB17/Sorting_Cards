@@ -19,4 +19,8 @@ class GuessTest < Minitest::Test
     assert_instance_of Card, @guess.card
   end
 
+  def test_correct
+    refute @guess.correct?
+  end 
+
 end
