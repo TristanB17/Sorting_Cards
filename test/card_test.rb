@@ -12,7 +12,7 @@ class CardTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    assert_equal "10", @card.number
+    assert_equal "10", @card.value
     assert_equal "Spades", @card.suit
   end
 
