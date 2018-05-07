@@ -7,4 +7,6 @@ class Deck
     @count = @cards.count
   end
 
+  
+
 end
