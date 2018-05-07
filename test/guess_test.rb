@@ -7,23 +7,31 @@ class GuessTest < Minitest::Test
 
   def setup
     card = Card.new("King", "Diamonds")
-    @guess = Guess.new("Queen of Clubs", card)
+    guess = Guess.new("Queen of Clubs", card)
   end
 
   def test_it_exists
     card = Card.new("King", "Diamonds")
+    guess = Guess.new("Queen of Clubs", card)
+
     assert_instance_of Card, card
-    assert_instance_of Guess, @guess
+    assert_instance_of Guess, guess
   end
 
   def test_it_has_attributes
     card = Card.new("King", "Diamonds")
-    assert_equal "Queen of Clubs", @guess.response
-    assert_instance_of Card, @guess.card
+    guess = Guess.new("Queen of Clubs", card)
+
+    assert_equal "Queen of Clubs", guess.response
+    assert_instance_of Card, guess.card
   end
 
   def test_correct
-    refute @guess.correct?
+    card = Card.new("King", "Diamonds")
+    guess = Guess.new("Queen of Clubs", card)
+
+    refute guess.correct?
+    assert_equal "Wrong.", guess.feedback
   end
 
 end

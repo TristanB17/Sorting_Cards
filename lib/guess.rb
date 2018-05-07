@@ -12,4 +12,6 @@ class Guess
     formatted[0] == @card.value.downcase && formatted[1] == @card.suit.downcase
   end
 
+  
+
 end
