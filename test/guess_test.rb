@@ -31,7 +31,7 @@ class GuessTest < Minitest::Test
     guess = Guess.new("Queen of Clubs", card)
 
     refute guess.correct?
-    assert_equal "Wrong.", guess.feedback
+    assert_equal "Incorrect.", guess.feedback
   end
 
   def test_correct_with_true_card

@@ -16,7 +16,7 @@ class Guess
     if correct? == true
       "Correct!"
     else
-      "Wrong."
+      "Incorrect."
     end
   end
 
