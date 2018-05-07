@@ -14,6 +14,7 @@ class DeckTest < Minitest::Test
     assert_instance_of Card, card_1
     assert_instance_of Deck, deck
     assert_equal [card_1, card_2, card_3], deck.cards
+    assert_equal 3, deck.count
   end
 
 end
