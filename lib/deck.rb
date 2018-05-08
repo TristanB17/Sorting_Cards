@@ -25,11 +25,9 @@ class Deck
     if card_array.count == 1
       return card_array
     end
-
     half = (card_array.length / 2)
     left = card_array[0..half]
     right = card_array[half..card_array.length]
-
     merge(left, right)
   end
 
@@ -42,7 +40,7 @@ class Deck
         right.shift
       end
     end
-    output.concat(left).concat(right)
+    output.concat(left).concat(right).uniq!
   end
 
 end
