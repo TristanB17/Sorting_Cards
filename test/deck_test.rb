@@ -37,7 +37,7 @@ class DeckTest < Minitest::Test
     deck = Deck.new([card_1, card_2, card_3])
 
     assert_equal [card_1, card_2, card_3], deck.cards
-    assert_equal [card_2, card_1, card_3], deck.merge_sort
+    assert_equal [card_2, card_1, card_3], deck.merge_sort(deck.cards)
   end
 
 end

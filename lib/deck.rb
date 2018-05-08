@@ -21,4 +21,28 @@ class Deck
     cards
   end
 
+  def merge_sort(card_array)
+    if card_array.count == 1
+      return card_array
+    end
+
+    half = (card_combo.length / 2)
+    left = card_array[0..half]
+    right = card_array[half..card_array.length]
+
+    merge(left, right)
+  end
+
+  def merge(left, right)
+    output = []
+    until left.empty? || right.empty?
+      output << if left.first <= right.first
+        left.shift
+      else
+        right.shift
+      end
+    end
+    output.concat(left).concat(right)
+  end
+
 end
