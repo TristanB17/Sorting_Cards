@@ -26,7 +26,7 @@ class Deck
       return card_array
     end
 
-    half = (card_combo.length / 2)
+    half = (card_array.length / 2)
     left = card_array[0..half]
     right = card_array[half..card_array.length]
 
@@ -36,7 +36,7 @@ class Deck
   def merge(left, right)
     output = []
     until left.empty? || right.empty?
-      output << if left.first <= right.first
+      output << if left.first.number <= right.first.number
         left.shift
       else
         right.shift
