@@ -8,7 +8,7 @@ class Deck
   end
 
   def sort
-    pairs_length = cards.length - 1
+    pairs_length = @cards.length - 1
     pairs_length.times do
       current_index = 0
       pairs_length.times do
@@ -21,26 +21,23 @@ class Deck
     cards
   end
 
-  def merge_sort(card_array)
-    if card_array.count == 1
-      return card_array
+  def merge_sort
+    if @count == 1
+      return @cards
     end
-    half = (card_array.length / 2)
-    left = card_array[0..half]
-    right = card_array[half..card_array.length]
+    half = (@count / 2)
+    left = @cards[0..half]
+    right = @cards[half..@count]
     merge(left, right)
   end
 
   def merge(left, right)
     output = []
     until left.empty? || right.empty?
-      output << if left.first.number <= right.first.number
-        left.shift
-      else
-        right.shift
-      end
+      output << (left[0].number <= right[0].number ? left : right).shift
     end
-    output.concat(left).concat(right).uniq!
+    result = output.concat(left).concat(right)
+    result.uniq!
   end
 
 end
