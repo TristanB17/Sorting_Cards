@@ -34,24 +34,23 @@ class DeckTest < Minitest::Test
     card_1 = Card.new("4","Hearts")
     card_2 = Card.new("3", "Clubs")
     card_3 = Card.new("5", "Diamonds")
-    card_4 = Card.new("3", "Hearts")
-    card_5 = Card.new("8", "Diamonds")
-    deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
+    deck = Deck.new([card_1, card_2, card_3])
 
-    assert_equal [card_1, card_2, card_3, card_4, card_5], deck.cards
-    assert_equal [card_2, card_4, card_1, card_3, card_5], deck.merge_sort
+    assert_equal [card_1, card_2, card_3], deck.cards
+    assert_equal [card_2, card_1, card_3], deck.merge_sort
   end
 
   def test_more_complex_merge_sort
-    skip
     card_1 = Card.new("4","Hearts")
-    card_2 = Card.new("3", "Clubs")
-    card_3 = Card.new("5", "Diamonds")
-    card_4 = Card.new("2", "Spades")
-    deck = Deck.new([card_1, card_2, card_3, card_4])
+    card_2 = Card.new("7", "Spades")
+    card_3 = Card.new("3", "Clubs")
+    card_4 = Card.new("5", "Diamonds")
+    card_5 = Card.new("6", "Diamonds")
 
-    assert_equal [card_1, card_2, card_3, card_4], deck.cards
-    assert_equal [card_4, card_2, card_1, card_3], deck.merge_sort
+    deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
+
+    assert_equal [card_1, card_2, card_3, card_4, card_5], deck.cards
+    assert_equal [card_3, card_1, card_4, card_5, card_2], deck.merge_sort
   end
 
 end

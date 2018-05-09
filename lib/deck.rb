@@ -22,22 +22,30 @@ class Deck
   end
 
   def merge_sort
-    if @count == 1
-      return @cards
+    split_again(@cards)
+  end
+
+  def split_again(array)
+    if array.length == 1
+      return array
     end
-    half = (@count / 2)
-    left = @cards[0..half]
-    right = @cards[half..@count]
-    merge(left, right)
+    half = (array.length / 2).floor
+    left = array[0..(half - 1)]
+    right = array[half..(array.length - 1)]
+    merge(split_again(left), split_again(right))
   end
 
   def merge(left, right)
     output = []
     until left.empty? || right.empty?
-      output << (left[0].number <= right[0].number ? left : right).shift
+      if left[0].number <= right[0].number
+        output << (left.shift)
+      else
+        output << (right.shift)
+      end
     end
     result = output.concat(left).concat(right)
-    result.uniq!
+    return result
   end
 
 end
