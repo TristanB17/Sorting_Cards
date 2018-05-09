@@ -24,15 +24,13 @@ class Deck
   def sort_alternate
     swapped = true
     while swapped
-      # (cards.length - 1).times do
-        swapped = false
-        (cards.length - 1).times do |index|
-          if cards[index].number > cards[index + 1].number
-            cards[index], cards[index + 1] = cards[index + 1], cards[index]
-            swapped = true
-          end
+      swapped = false
+      (cards.length - 1).times do |index|
+        if cards[index].number > cards[index + 1].number
+          cards[index], cards[index + 1] = cards[index + 1], cards[index]
+          swapped = true
         end
-      # end
+      end
     end
     cards
   end
@@ -53,7 +51,6 @@ class Deck
 
   def merge(left, right)
     output = []
-    # binding.pry
     until left.empty? || right.empty?
       if left[0].number <= right[0].number
         output << (left.shift)
@@ -61,10 +58,7 @@ class Deck
         output << (right.shift)
       end
     end
-    output
-    # binding.pry
     result = output.concat(left).concat(right)
-    # binding.pry
     return result
   end
 
