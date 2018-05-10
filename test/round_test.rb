@@ -26,7 +26,7 @@ class RoundTest < Minitest::Test
     round = Round.new(deck)
 
     assert_equal card_1, round.current_card
-    round.record_guess("3 of Hearts")
+    assert_instance_of Guess, round.record_guess("3 of Hearts")
     assert_equal "3 of Hearts", round.guesses[0].response
     assert_equal 1, round.guesses.count
     assert_equal "Correct!", round.guesses[0].feedback

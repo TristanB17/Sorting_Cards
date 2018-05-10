@@ -20,11 +20,11 @@ class Round
     @number_correct += 1 if question.correct?
     @position += 1
     @guesses << question
+    question
   end
 
   def percent_correct
     ((@number_correct.to_f / @guesses.length.to_f) * 100).to_i
   end
-
 
 end
